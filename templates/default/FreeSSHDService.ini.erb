@@ -1,0 +1,46 @@
+[Telnet server]
+TelnetListenAddress=0.0.0.0
+TelnetListenPort=23
+TelnetMaxConnections=0
+TelnetTimeout=0
+TelnetBanner=
+TelnetCMD=C:\Windows\system32\cmd.exe
+TelnetRun=0
+TelnetNewConsole=1
+[SSH server]
+SSHListenAddress=<%= node[:freesshd][:ssh][:SSHListenAddress] %>
+SSHListenPort=<%= node[:freesshd][:ssh][:SSHListenPort] %>
+SSHMaxConnections=<%= node[:freesshd][:ssh][:SSHMaxConnections] %>
+SSHTimeout=<%= node[:freesshd][:ssh][:SSHTimeout] %>
+SSHBanner=<%= node[:freesshd][:ssh][:SSHBanner] %>
+SSHCMD=<%= node[:freesshd][:ssh][:SSHCMD] %>
+SSHRun=<%= node[:freesshd][:ssh][:SSHRun] %>
+SSHNewConsole=<%= node[:freesshd][:ssh][:SSHNewConsole] %>
+SSHCiphers=<%= node[:freesshd][:ssh][:SSHCiphers] %>
+SSHMACs=<%= node[:freesshd][:ssh][:SSHMACs] %>
+SSHPasswordAuth=<%= node[:freesshd][:ssh][:SSHPasswordAuth] %>
+SSHPublickeyAuth=<%= node[:freesshd][:ssh][:SSHPublickeyAuth] %>
+SSHPublickeyPath=<%= node[:freesshd][:ssh][:SSHPublickeyPath] %>
+RSAKeyPath=<%= node[:freesshd][:ssh][:RSAKeyPath] %>
+DSAKeyPath=<%= node[:freesshd][:ssh][:DSAKeyPath] %>
+[SSH tunneling]
+SSHLocalTunnel=0
+SSHLocalTunnelOnly=0
+SSHRemoteTunnel=0
+SSHRemoteTunnelOnly=0
+[SFTP]
+SFTPHomePath=$HOME\
+[Access filtering]
+HostRestrictions=
+HostRestrictionsAllow=0
+[Logging]
+LogEvents=0
+LogFilePath=C:\Program Files (x86)\freeSSHdfreesshd.log
+LogResolveIP=0
+[Automatic updates]
+UpdateCheckOnStartup=1
+UpdateDontPrompt=0
+UpdateShowMessages=1
+UpdateLastMessageID=1
+[Users]
+UserCount=0
