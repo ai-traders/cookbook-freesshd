@@ -29,8 +29,18 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         keep_service: false,
         ssh: {
           SSHListenPort: 2228
+        },
+        users: {
+          admin: {
+            auth: 1,
+            password: '4E7AFEBCFBAE000B22C7C85E5560F89A2A0280B4EC',# Admin
+            domain: nil,
+            shell: 1,
+            sftp: 0,
+            tunnel: 0
           }
-        }
+        }        
+      }
     }
 
     chef.run_list = [

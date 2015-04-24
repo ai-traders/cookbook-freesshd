@@ -43,4 +43,20 @@ UpdateDontPrompt=0
 UpdateShowMessages=1
 UpdateLastMessageID=1
 [Users]
+<% if node[:freesshd][:users] %>
+UserCount=<%= node[:freesshd][:users].count %>
+   <% i = 0 %>
+   <% node[:freesshd][:users].each do |name,options| %>
+[User<%= i %>]
+Name=<%= name %>
+Auth=<%= options[:auth] %>
+Password=<%= options[:password] %>
+Domain=<%= options[:domain] %>
+Shell=<%= options[:shell] %>
+SFTP=<%= options[:sftp] %>
+Tunnel=<%= options[:tunnel] %>
+      <% i = i + 1 %>
+   <% end %>
+<% else %>
 UserCount=0
+<% end %>

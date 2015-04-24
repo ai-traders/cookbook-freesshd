@@ -6,7 +6,7 @@ Chef cookbook which installs and configures [freesshd](http://www.freesshd.com) 
 
  * install freesshd
  * configure ssh server
- * configure user access, password and key-based (TODO)
+ * configure user access, password and key-based
 
 ## Supported Platforms
 
@@ -49,7 +49,27 @@ Include `freesshd` in your node's `run_list`:
 ```
 This will install freesshd and windows service with default configuration. Use chef attributes to customize.
 
-## TODO
+### User access
+
+All attributes under `node[:freesshd][[:users]` control access to the server. 
+
+Examples:
+ * add user `admin` with password-only authentication, enabled access to shell, with password 'Admin':
+
+```ruby
+node[:freesshd][:users][:admin] = {
+  auth: 1,
+  password: '4E7AFEBCFBAE000B22C7C85E5560F89A2A0280B4EC',# Admin
+  domain: nil,
+  shell: 1,
+  sftp: 0,
+  tunnel: 0
+}
+```
+
+## TODO list
+
+More human-friendly attribute types (e.g. `true` instead of 1).
 
 Entire sshd is controlled by one single .ini file. Currently only ssh server and users section is controlled by this cookbook.
 Additionally we could have configurable:
