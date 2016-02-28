@@ -10,11 +10,12 @@ windows_package 'freesshd' do
   action         :install
   not_if          { ::File.exist?("C:\\Program Files (x86)\\freeSSHd\\FreeSSHDService.exe") }
   if !node[:freesshd][:keep_service]
-    notifies :run, 'windows_batch[remove FreeSSHDService service]', :immediately
+    notifies :run, 'batch[remove FreeSSHDService service]', :immediately
   end
 end
 
-windows_batch 'remove FreeSSHDService service' do
+batch 'remove FreeSSHDService service' do
+  action :nothing
   code <<-EOH
   wmic service where name="FreeSSHDService" call stopservice
   wmic service where name="FreeSSHDService" call delete
